@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  const [isListVisible, setIsListVisible] = useState(true)
+
+  const toggleIsVisilbe = () => {
+    setIsListVisible(prev => !prev)
+  }
+
   return (
     <div className="App">
       <header className="App-header">
@@ -18,6 +24,13 @@ function App() {
         >
           Learn React
         </a>
+      <button onClick={toggleIsVisilbe}>Toggle List</button>
+      {isListVisible ? (
+        <ul>
+          <li>Orange</li>
+          <li>Apple</li>
+          <li>Pear</li>
+        </ul>) : '' }
       </header>
     </div>
   );
